@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sistema de Adoção de Animais</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+
+<body>
+
+  <div class="bg-image"></div>
+
+  <div class="bg-btn">
+    <a class="button button-danger" href="{{ 'admin' }}">Entrar</a>
+  </div>
+  
+  <div class="bg-text">
+    <h1 class="text-white">{{ title }}</h1>
+    <h5 class="text-white">{{ description }}</h5>
+  </div>
+
+  <div class="container">
+      <div class="row">
+          <div class="twelve columns">
+
+            <table class="u-full-width">
+              <thead>
+                <tr>
+                  <th>Imagem</th>
+                  <th>Observação</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if animal_album %}
+                  There are {{ animal_album|length }} records:
+                  {% for e in animal_album %}
+                    <tr>
+                      <td> <img src="{{ e.image.url }}" width='200px'> </td>
+                      <td> {{ e.observation }} </td>
+                    </tr>
+                  {% endfor %}
+                {% else %}
+                  There are no records in the system
+                {% endif %}
+              </tbody>
+            </table>
+
+          </div>
+      </div>
+  </div>
+
+</body>
+
+</html>

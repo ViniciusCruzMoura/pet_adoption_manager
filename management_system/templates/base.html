@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}
+    <title>Local Library</title>
+    {% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom_style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="two columns">
+                {% block sidebar %}
+                <ul>
+                    <li class="button"><a href="{% url 'management_system:index' %}">Home</a></li>
+                </ul>
+                {% endblock %}
+            </div>
+            <div class="ten columns">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
