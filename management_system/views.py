@@ -5,8 +5,8 @@ from .models import Animal
 
 def index(request):
     context = {
-        'title': 'Adoção de Animais',
-        'description': 'Hello World!!!',
-        'animal_album': Animal.objects.all() or None,
+        'title': 'Sistema de Gestão de Adoção de Animais',
+        'description': '',
+        # 'animal_album': Animal.objects.filter().order_by('-id')[:10] or None,
     }
     return render(request, 'index.html', context)

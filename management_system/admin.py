@@ -4,8 +4,12 @@ from .models import *
 
 # Register your models here.
 
-class AdoptionInline(admin.TabularInline):
-    model = Adoption
+class ImagesInline(admin.TabularInline):
+    model = Images
+    fields = ('id', 'file', 'img_preview',)
+    readonly_fields = ('id', 'img_preview',)
+class VaccineInline(admin.TabularInline):
+    model = Vaccine
 
 class AnimalAdmin(admin.ModelAdmin):
     list_display = (
@@ -17,6 +21,7 @@ class AnimalAdmin(admin.ModelAdmin):
         'size',
         'age',
         'breed',
+        'img_preview',
     )
     search_fields = ('id', 'name')
     list_per_page = 30
@@ -28,27 +33,27 @@ class AnimalAdmin(admin.ModelAdmin):
             ),
             "description": 'Informações basicas do animal',
         }),
-        ('Arquivos', {
-            "fields": (
-                'image',
-            ),
-            "description": 'Documentos de identificação do animal',
-        }),
+        # ('Arquivos', {
+        #     "fields": (
+        #         ('img_preview', 'image',),
+        #     ),
+        #     "description": 'Documentos de identificação do animal',
+        # }),
         ('Caracteristicas', {
             "fields": (
                 'gender', 'size', 'age' , 'breed', 'color', 'type',
             ),
             "description": 'Caracterisitas do animal',
         }),
-        ('Vacinação', {
-            "fields": (
-                'vaccinations',
-            ),
-            "description": 'Vacinas aplicadas ao animal',
-        }),
+        # ('Vacinação', {
+        #     "fields": (
+        #         'vaccinations',
+        #     ),
+        #     "description": 'Vacinas aplicadas ao animal',
+        # }),
     )
-    #readonly_fields = ('id',)
-    #inlines = [AdoptionInline]
+    readonly_fields = ('id', 'img_preview',)
+    inlines = [ImagesInline, VaccineInline]
     def save_model(self, request, obj, form, change):
         obj.save()
     
@@ -132,3 +137,14 @@ class TelephoneAdmin(admin.ModelAdmin):
     )
     search_fields = ('id', 'numero')
     list_per_page = 30
+
+@admin.register(Images)
+class ImagesAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'file',       
+        'img_preview', 
+    )
+    search_fields = ('id', 'file')
+    list_per_page = 30
+    readonly_fields = ['img_preview']

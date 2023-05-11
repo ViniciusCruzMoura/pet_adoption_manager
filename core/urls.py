@@ -26,6 +26,6 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = 'Sistema de Gestão de Adoção de Animal'
-admin.site.index_title = 'Admin' 
-admin.site.site_title = 'Sistema'
+admin.site.site_header = 'Sistema de Gestão de Adoção de Animais'
+admin.site.index_title = 'Atendimento' 
+admin.site.site_title = 'Adoção de Animais'

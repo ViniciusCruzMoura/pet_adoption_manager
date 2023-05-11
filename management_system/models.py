@@ -1,18 +1,5 @@
 from django.db import models
 from django.utils import timezone
-
-class Vaccine(models.Model):
-    name = models.CharField(
-        verbose_name='Nome',
-        max_length=50
-    )
-    def __str__(self):
-        return f"""{self.name}"""
-    class Meta:
-        db_table = 'management_system_vaccine'
-        verbose_name = 'Vacina'
-        verbose_name_plural = 'Vacinas'
-        managed = True
     
 class Color(models.Model):
     name = models.CharField(
@@ -91,13 +78,21 @@ class Animal(models.Model):
         blank=True, 
         null=True
     )
-    image = models.ImageField(
-        verbose_name='Imagem', 
-        upload_to ='uploads', 
-        default=None, 
-        blank=True, 
-        null=True
-    )
+    # image = models.ImageField(
+    #     verbose_name='Imagem', 
+    #     upload_to ='uploads', 
+    #     default=None, 
+    #     blank=True, 
+    #     null=True
+    # )
+    # image = models.ForeignKey(
+    #     Images,
+    #     verbose_name='Imagens',
+    #     default=None, 
+    #     blank=True,
+    #     null=True,
+    #     on_delete=models.SET_NULL
+    # )
     observation = models.CharField(
         verbose_name='Observação', 
         max_length=4000, 
@@ -141,13 +136,12 @@ class Animal(models.Model):
         blank=True, 
         null=True
     )
-    vaccinations = models.ManyToManyField(
-        Vaccine,
-        verbose_name='Vacinas',
-        default=None, 
-        blank=True, 
-        null=True
-    )
+    # vaccinations = models.ManyToManyField(
+    #     Vaccine,
+    #     verbose_name='Vacinas',
+    #     default=None, 
+    #     blank=True
+    # )
     color = models.ForeignKey(
         Color,
         verbose_name='Cor',
@@ -172,12 +166,46 @@ class Animal(models.Model):
         null=True,
         on_delete=models.SET_NULL
     )
+    def img_preview(self):
+        obj = Images.objects.filter().order_by('-id')[:1] or None
+        if obj is None:
+            return ""
+        return obj[0].img_preview()
     def __str__(self):
         return f"""{self.name}"""
     class Meta:
         db_table = 'management_system_animal'
         verbose_name = 'Animal'
         verbose_name_plural = 'Animais'
+        managed = True
+
+class Images(models.Model):
+    file = models.ImageField(
+        verbose_name='Arquivo', 
+        upload_to ='uploads', 
+        default=None, 
+        blank=True, 
+        null=True
+    )
+    animal = models.ForeignKey(
+        Animal,
+        verbose_name='Animais',
+        default=None, 
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL
+    )
+    def img_preview(self):
+        from django.utils.html import mark_safe
+        return mark_safe('<img src="%s" width="80" height="80" />' % (self.file.url))
+    #img_preview.short_description = 'Image'
+    #img_preview.allow_tags = True
+    def __str__(self):
+        return f"""{self.file.name.replace('uploads/', '')}"""
+    class Meta:
+        db_table = 'management_system_images'
+        verbose_name = 'Imagem'
+        verbose_name_plural = 'Imagens'
         managed = True
 
 class Telephone(models.Model):
@@ -248,4 +276,25 @@ class Adoption(models.Model):
         db_table = 'management_system_adoption'
         verbose_name = 'Adoção'
         verbose_name_plural = 'Adoções'
+        managed = True
+
+class Vaccine(models.Model):
+    name = models.CharField(
+        verbose_name='Nome',
+        max_length=50
+    )
+    animal = models.ForeignKey(
+        Animal,
+        verbose_name='Animais',
+        default=None, 
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL
+    )
+    def __str__(self):
+        return f"""{self.name}"""
+    class Meta:
+        db_table = 'management_system_vaccine'
+        verbose_name = 'Vacina'
+        verbose_name_plural = 'Vacinas'
         managed = True
