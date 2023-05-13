@@ -20,7 +20,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'management_system.apps.ManagementSystemConfig',
-    'apps.auth'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
