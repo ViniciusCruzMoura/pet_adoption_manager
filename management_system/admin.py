@@ -8,8 +8,10 @@ class ImagesInline(admin.TabularInline):
     model = Images
     fields = ('id', 'file', 'img_preview',)
     readonly_fields = ('id', 'img_preview',)
+    extra = 1
 class VaccineInline(admin.TabularInline):
     model = Vaccine
+    extra = 1
 
 class AnimalAdmin(admin.ModelAdmin):
     list_display = (
