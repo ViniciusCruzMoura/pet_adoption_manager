@@ -54,7 +54,7 @@ $ python3 manage.py migrate
 $ python3 manage.py runserver
 ```
 
-Neste ponto, a aplicação é executado em `http://127.0.0.1:8000/`. 
+Neste ponto, a aplicação é acessível em `http://127.0.0.1:8000/`. 
 
 <br />
 
@@ -82,6 +82,6 @@ $ python manage.py migrate
 $ python manage.py runserver
 ```
 
-Neste ponto, a aplicação é executado em `http://127.0.0.1:8000/`. 
+Neste ponto, a aplicação é acessível em `http://127.0.0.1:8000/`. 
 
 <br />
