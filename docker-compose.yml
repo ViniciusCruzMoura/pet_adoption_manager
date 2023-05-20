@@ -1,27 +1,23 @@
-version: '3.8'
+version: '3.3'
 services:
-  app:
-    container_name: app
+  web:
     restart: always
-    env_file: .env
-    build: .
-    networks:
-      - db_network
-      - web_network
+    image: prototype2:latest
+    build: https://github.com/ViniciusEduardoCruzMoura/prototype_2.git
+    environment:
+      - CONFIG_DEBUG=${CONFIG_DEBUG}
+      - CONFIG_SECRET_KEY=${CONFIG_SECRET_KEY}
+      - CONFIG_ALLOWED_HOSTS=${CONFIG_ALLOWED_HOSTS}
+      - CONFIG_CSRF_TRUSTED_ORIGINS=${CONFIG_CSRF_TRUSTED_ORIGINS}
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:5005"
   nginx:
-    container_name: nginx
     restart: always
-    image: "nginx:latest"
+    image: nginx:latest
     ports:
       - "5085:5085"
     volumes:
       - ./nginx:/etc/nginx/conf.d
-    networks:
-      - web_network
     depends_on: 
-      - app
-networks:
-  db_network:
-    driver: bridge
-  web_network:
-    driver: bridge
+      - web
