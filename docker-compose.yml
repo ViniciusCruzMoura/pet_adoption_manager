@@ -3,6 +3,7 @@ services:
   web:
     restart: always
     image: prototype2:latest
+    build: https://github.com/ViniciusEduardoCruzMoura/prototype_2.git
     ports:
       - "32000:5005"
     environment:
