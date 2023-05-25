@@ -2,15 +2,41 @@ version: '3.3'
 services:
   web:
     restart: always
-    image: prototype2:latest
-    build: https://github.com/ViniciusEduardoCruzMoura/prototype_2.git
-    ports:
-      - "32000:5005"
+    image: prototype2:${VERSION}
+    build: .
+    pull_policy: build
     environment:
+      - DOCKER_BUILDKIT=0
       - CONFIG_DEBUG=${CONFIG_DEBUG}
       - CONFIG_SECRET_KEY=${CONFIG_SECRET_KEY}
       - CONFIG_ALLOWED_HOSTS=${CONFIG_ALLOWED_HOSTS}
       - CONFIG_CSRF_TRUSTED_ORIGINS=${CONFIG_CSRF_TRUSTED_ORIGINS}
     command: >
       sh -c "python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:5005"
+             python manage.py collectstatic --noinput &&
+             gunicorn --config gunicorn-cfg.py core.wsgi"
+    volumes:
+      - static:/static 
+      - media:/media
+    depends_on:
+      - redis
+  nginx:
+    restart: always
+    image: nginx:latest
+    ports:
+      - ${PORT}:80
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static:/static
+      - media:/media
+    depends_on: 
+      - web
+  redis:
+    restart: always
+    image: redis
+    volumes:
+      - redis:/data
+volumes:
+  static:
+  media:
+  redis:
