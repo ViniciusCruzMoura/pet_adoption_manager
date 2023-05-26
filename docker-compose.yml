@@ -20,6 +20,7 @@ services:
       - media:/media
     depends_on:
       - redis
+      - postgres
   nginx:
     restart: always
     image: nginx:latest
@@ -36,7 +37,14 @@ services:
     image: redis
     volumes:
       - redis:/data
+  postgres:
+    image: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
 volumes:
   static:
   media:
   redis:
+  postgres:
