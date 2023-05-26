@@ -6,6 +6,9 @@ CONFIG_SECRET_KEY = os.getenv("CONFIG_SECRET_KEY", default="django-insecure-#gs@
 CONFIG_ALLOWED_HOSTS = os.getenv("CONFIG_ALLOWED_HOSTS", default="*")
 CONFIG_CSRF_TRUSTED_ORIGINS = os.getenv('CONFIG_CSRF_TRUSTED_ORIGINS', default='https://127.0.0.1')
 
+for name, value in os.environ.items():
+    print("{0}: {1}".format(name, value))
+
 #DATABASE_ROUTERS = ['core.DatabaseRoutes.DatabaseRoutes']
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = CONFIG_SECRET_KEY
