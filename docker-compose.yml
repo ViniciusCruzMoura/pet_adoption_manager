@@ -18,6 +18,7 @@ services:
     volumes:
       - static:/static 
       - media:/media
+      - nginx:/nginx
     depends_on:
       - redis
       - postgres
@@ -27,7 +28,7 @@ services:
     ports:
       - ${PORT}:80
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - nginx:/etc/nginx/conf.d
       - static:/static
       - media:/media
     depends_on: 
@@ -48,3 +49,4 @@ volumes:
   media:
   redis:
   postgres:
+  nginx:
