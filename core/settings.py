@@ -5,6 +5,11 @@ CONFIG_DEBUG = os.getenv("CONFIG_DEBUG", default="True")
 CONFIG_SECRET_KEY = os.getenv("CONFIG_SECRET_KEY", default="django-insecure-#gs@=g+_dtk$xo@6v^q^+hmr6ev=1s2bsh_neyn7a&ti!8y67e")
 CONFIG_ALLOWED_HOSTS = os.getenv("CONFIG_ALLOWED_HOSTS", default="*")
 CONFIG_CSRF_TRUSTED_ORIGINS = os.getenv('CONFIG_CSRF_TRUSTED_ORIGINS', default='https://127.0.0.1')
+CONFIG_POSTGRESQL_NAME = os.getenv("CONFIG_POSTGRESQL_NAME", default="public")
+CONFIG_POSTGRESQL_USER = os.getenv("CONFIG_POSTGRESQL_USER", default="postgres")
+CONFIG_POSTGRESQL_PASSWORD = os.getenv("CONFIG_POSTGRESQL_PASSWORD", default="postgres")
+CONFIG_POSTGRESQL_HOST = os.getenv("CONFIG_POSTGRESQL_HOST", default="postgres")
+CONFIG_POSTGRESQL_PORT = os.getenv("CONFIG_POSTGRESQL_PORT", default="5432")
 
 for name, value in os.environ.items():
     print("{0}: {1}".format(name, value))
@@ -52,11 +57,21 @@ TEMPLATES = [
     },
 ]
 WSGI_APPLICATION = 'core.wsgi.application'
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': f'{CONFIG_POSTGRESQL_NAME}',
+        'USER': f'{CONFIG_POSTGRESQL_USER}',
+        'PASSWORD': f'{CONFIG_POSTGRESQL_PASSWORD}',
+        'HOST': f'{CONFIG_POSTGRESQL_HOST}',
+        'PORT': f'{CONFIG_POSTGRESQL_PORT}',
+    },
 }
 AUTH_PASSWORD_VALIDATORS = [
     {
