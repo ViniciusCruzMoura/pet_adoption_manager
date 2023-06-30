@@ -1,4 +1,4 @@
-# Sistema de Gestão para Adoção de Animais
+# Sistema de Adoção de Animais
 
 Sistema para auxiliar o controle e gestão para as organizações que fazem a adoção de animais de estimação ou que necessitem de uma plataforma para o registro de seu catalogo de animais.
 
