@@ -2,7 +2,7 @@ version: '3.3'
 services:
   web:
     restart: always
-    image: prototype2:${VERSION}
+    image: pet_adoption_manager:${VERSION}
     build: .
     pull_policy: build
     environment:
