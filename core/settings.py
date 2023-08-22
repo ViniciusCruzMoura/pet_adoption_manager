@@ -148,10 +148,10 @@ JAZZMIN_SETTINGS = {
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Inicio",  "url": "admin:index", "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
-        {"name": "Support", "url": "https://github.com/ViniciusCruzMoura/pet_adoption_manager/issues", "new_window": True},
+        {"name": "Suporte", "url": "https://github.com/ViniciusCruzMoura/pet_adoption_manager/issues", "new_window": True},
 
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
@@ -166,7 +166,7 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {"name": "Support", "url": "https://github.com/ViniciusCruzMoura/pet_adoption_manager/issues", "new_window": True},
+        {"name": "Suporte", "url": "https://github.com/ViniciusCruzMoura/pet_adoption_manager/issues", "new_window": True},
         {"model": "auth.user"}
     ],
 
@@ -239,6 +239,8 @@ JAZZMIN_SETTINGS = {
     "changeform_format": "horizontal_tabs",
     # override change forms on a per modeladmin basis
     "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
+    # Add a language dropdown into the admin
+    "language_chooser": True,
 }
 JAZZMIN_UI_TWEAKS = {
     "theme": "sketchy",

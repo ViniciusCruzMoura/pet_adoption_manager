@@ -26,6 +26,13 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+#Internacionalização
+from django.conf.urls.i18n import i18n_patterns
+urlpatterns += [
+    path("i18n/", include("django.conf.urls.i18n")),
+]
+urlpatterns += i18n_patterns(path("admin/", admin.site.urls))
+
 admin.site.site_header = 'Sistema de Gestão de Adoção de Animais'
 admin.site.index_title = 'Atendimento' 
 admin.site.site_title = 'Adoção de Animais'
