@@ -11,6 +11,11 @@ services:
       - media:/media
     depends_on: 
       - web
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 32M
   web:
     restart: always
     image: pet_adoption_manager:${VERSION}
@@ -37,18 +42,41 @@ services:
       - nginx:/nginx
     depends_on:
       - redis
-      - postgres  
+      - postgres
+    deploy:
+      resources:
+        limits:
+          cpus: '0.15'
+          memory: 128M
+        reservations:
+          cpus: '0.10'
+          memory: 64M
   redis:
     restart: always
     image: redis
     volumes:
       - redis:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 32M
   postgres:
     image: postgres
     volumes:
       - postgres:/var/lib/postgresql/data/
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 832M
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
 volumes:
   static:
   media:
