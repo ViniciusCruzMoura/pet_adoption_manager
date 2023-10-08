@@ -1,18 +1,19 @@
 import os
 from pathlib import Path
+from decouple import config
 
-CONFIG_DEBUG = os.getenv("CONFIG_DEBUG", default="True")
-CONFIG_SECRET_KEY = os.getenv("CONFIG_SECRET_KEY", default="django-insecure-#gs@=g+_dtk$xo@6v^q^+hmr6ev=1s2bsh_neyn7a&ti!8y67e")
-CONFIG_ALLOWED_HOSTS = os.getenv("CONFIG_ALLOWED_HOSTS", default="*")
-CONFIG_CSRF_TRUSTED_ORIGINS = os.getenv('CONFIG_CSRF_TRUSTED_ORIGINS', default='https://127.0.0.1')
-CONFIG_POSTGRESQL_NAME = os.getenv("CONFIG_POSTGRESQL_NAME", default="")
-CONFIG_POSTGRESQL_USER = os.getenv("CONFIG_POSTGRESQL_USER", default="")
-CONFIG_POSTGRESQL_PASSWORD = os.getenv("CONFIG_POSTGRESQL_PASSWORD", default="")
-CONFIG_POSTGRESQL_HOST = os.getenv("CONFIG_POSTGRESQL_HOST", default="")
-CONFIG_POSTGRESQL_PORT = os.getenv("CONFIG_POSTGRESQL_PORT", default="5432")
+CONFIG_DEBUG = config("CONFIG_DEBUG", default="True")
+CONFIG_SECRET_KEY = config("CONFIG_SECRET_KEY", default="django-insecure-#gs@=g+_dtk$xo@6v^q^+hmr6ev=1s2bsh_neyn7a&ti!8y67e")
+CONFIG_ALLOWED_HOSTS = config("CONFIG_ALLOWED_HOSTS", default="*")
+CONFIG_CSRF_TRUSTED_ORIGINS = config('CONFIG_CSRF_TRUSTED_ORIGINS', default='https://127.0.0.1')
+CONFIG_POSTGRESQL_NAME = config("CONFIG_POSTGRESQL_NAME", default="")
+CONFIG_POSTGRESQL_USER = config("CONFIG_POSTGRESQL_USER", default="")
+CONFIG_POSTGRESQL_PASSWORD = config("CONFIG_POSTGRESQL_PASSWORD", default="")
+CONFIG_POSTGRESQL_HOST = config("CONFIG_POSTGRESQL_HOST", default="")
+CONFIG_POSTGRESQL_PORT = config("CONFIG_POSTGRESQL_PORT", default="5432")
 
-for name, value in os.environ.items():
-    print("{0}: {1}".format(name, value))
+# for name, value in os.environ.items():
+#     print("{0}: {1}".format(name, value))
 
 #DATABASE_ROUTERS = ['core.DatabaseRoutes.DatabaseRoutes']
 BASE_DIR = Path(__file__).resolve().parent.parent
