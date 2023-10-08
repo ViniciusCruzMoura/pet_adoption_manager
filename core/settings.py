@@ -18,7 +18,7 @@ for name, value in os.environ.items():
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = CONFIG_SECRET_KEY
 DEBUG = CONFIG_DEBUG == 'True'
-ALLOWED_HOSTS = [CONFIG_ALLOWED_HOSTS]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', CONFIG_ALLOWED_HOSTS]
 CSRF_TRUSTED_ORIGINS = [CONFIG_CSRF_TRUSTED_ORIGINS]
 INSTALLED_APPS = [
     'jazzmin',
