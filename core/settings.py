@@ -63,24 +63,29 @@ TEMPLATES = [
     },
 ]
 WSGI_APPLICATION = 'core.wsgi.application'
+DATABASES = {}
 if CONFIG_POSTGRESQL_USER and CONFIG_POSTGRESQL_PASSWORD:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': f'{CONFIG_POSTGRESQL_NAME}',
-            'USER': f'{CONFIG_POSTGRESQL_USER}',
-            'PASSWORD': f'{CONFIG_POSTGRESQL_PASSWORD}',
-            'HOST': f'{CONFIG_POSTGRESQL_HOST}',
-            'PORT': f'{CONFIG_POSTGRESQL_PORT}',
-        },
-    }
+    DATABASES.update(
+        {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                'NAME': f'{CONFIG_POSTGRESQL_NAME}',
+                'USER': f'{CONFIG_POSTGRESQL_USER}',
+                'PASSWORD': f'{CONFIG_POSTGRESQL_PASSWORD}',
+                'HOST': f'{CONFIG_POSTGRESQL_HOST}',
+                'PORT': f'{CONFIG_POSTGRESQL_PORT}',
+            },
+        }
+    )
 else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'db.sqlite3',
-        },
-    }
+    DATABASES.update(
+        {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': 'db.sqlite3',
+            },
+        }
+    )
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
