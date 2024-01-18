@@ -1,6 +1,13 @@
 import os
 from pathlib import Path
 from decouple import config
+import logging
+
+logging.basicConfig(
+    level   = logging.DEBUG, 
+    format  = "[%(asctime)s %(levelname)8s] %(message)s",
+    datefmt = "%d/%m/%Y %H:%M:%S"
+)
 
 CONFIG_DEBUG = config("CONFIG_DEBUG", default="True")
 CONFIG_SECRET_KEY = config("CONFIG_SECRET_KEY", default="django-insecure-#gs@=g+_dtk$xo@6v^q^+hmr6ev=1s2bsh_neyn7a&ti!8y67e")
