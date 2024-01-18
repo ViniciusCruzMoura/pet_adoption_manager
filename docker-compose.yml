@@ -37,9 +37,9 @@ services:
     #          python manage.py collectstatic --noinput &&
     #          gunicorn --config gunicorn-cfg.py core.wsgi"
     volumes:
-      - static:/static 
-      - media:/media
-      - nginx:/nginx
+      - static:/usr/src/static
+      - media:/usr/src/media
+      - nginx:/usr/src/nginx
     depends_on:
       - redis
       - postgres
