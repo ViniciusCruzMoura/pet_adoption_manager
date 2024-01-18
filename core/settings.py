@@ -125,7 +125,16 @@ CELERY_BROKER_URL = f"redis://{REDIS_URL}:6379"
 CELERY_RESULT_BACKEND = f"redis://{REDIS_URL}:6379"
 #CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 DJANGO_CELERY_BEAT_TZ_AWARE = False
-
+if REDIS_URL:
+    CACHES = {
+        "default": {
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": f"redis://{REDIS_URL}:6379",
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            }
+        }
+    }
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title": "Adoção de Animais",
