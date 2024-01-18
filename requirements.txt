@@ -5,4 +5,4 @@ psycopg2-binary
 python-decouple
 django-celery-beat
 celery
-redis
+django-redis
