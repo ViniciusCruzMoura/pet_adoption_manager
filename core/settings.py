@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'celery',
+    'django_celery_beat',
     'management_system.apps.ManagementSystemConfig',
 ]
 MIDDLEWARE = [
@@ -99,11 +101,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Campo_Grande'
 USE_I18N = True
-USE_TZ = True
+USE_L10N = True
+USE_TZ = False
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if not os.path.exists(MEDIA_ROOT):
     os.makedirs(MEDIA_ROOT)
+CELERY_TIMEZONE = "America/Campo_Grande"
+CELERY_BROKER_URL = f"redis://{REDIS_URL}:6379"
+CELERY_RESULT_BACKEND = f"redis://{REDIS_URL}:6379"
+#CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+DJANGO_CELERY_BEAT_TZ_AWARE = False
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
