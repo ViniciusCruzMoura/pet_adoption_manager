@@ -18,7 +18,7 @@ CONFIG_POSTGRESQL_USER = config("CONFIG_POSTGRESQL_USER", default="")
 CONFIG_POSTGRESQL_PASSWORD = config("CONFIG_POSTGRESQL_PASSWORD", default="")
 CONFIG_POSTGRESQL_HOST = config("CONFIG_POSTGRESQL_HOST", default="")
 CONFIG_POSTGRESQL_PORT = config("CONFIG_POSTGRESQL_PORT", default="5432")
-CONFIG_REDIS_URL = config("CONFIG_REDIS_URL", default="127.0.0.1")
+CONFIG_REDIS_URL = config("CONFIG_REDIS_URL", default="")
 
 # for name, value in os.environ.items():
 #     print("{0}: {1}".format(name, value))
