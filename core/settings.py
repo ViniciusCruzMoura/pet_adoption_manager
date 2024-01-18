@@ -11,6 +11,7 @@ CONFIG_POSTGRESQL_USER = config("CONFIG_POSTGRESQL_USER", default="")
 CONFIG_POSTGRESQL_PASSWORD = config("CONFIG_POSTGRESQL_PASSWORD", default="")
 CONFIG_POSTGRESQL_HOST = config("CONFIG_POSTGRESQL_HOST", default="")
 CONFIG_POSTGRESQL_PORT = config("CONFIG_POSTGRESQL_PORT", default="5432")
+CONFIG_REDIS_URL = config("REDIS_URL", default="127.0.0.1")
 
 # for name, value in os.environ.items():
 #     print("{0}: {1}".format(name, value))
@@ -19,6 +20,7 @@ CONFIG_POSTGRESQL_PORT = config("CONFIG_POSTGRESQL_PORT", default="5432")
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = CONFIG_SECRET_KEY
 DEBUG = CONFIG_DEBUG == 'True'
+REDIS_URL = CONFIG_REDIS_URL
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', CONFIG_ALLOWED_HOSTS]
 CSRF_TRUSTED_ORIGINS = [CONFIG_CSRF_TRUSTED_ORIGINS]
 INSTALLED_APPS = [
@@ -95,12 +97,11 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LANGUAGE_CODE = 'pt-br'
-USE_I18N = True
 TIME_ZONE = 'America/Campo_Grande'
+USE_I18N = True
 USE_TZ = True
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 if not os.path.exists(MEDIA_ROOT):
     os.makedirs(MEDIA_ROOT)
 
