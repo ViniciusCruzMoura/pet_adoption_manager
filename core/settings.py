@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'celery',
     'django_celery_beat',
-    'management_system.apps.ManagementSystemConfig',
+    'apps.management_system',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -175,7 +175,7 @@ JAZZMIN_SETTINGS = {
         {"model": "auth.User"},
 
         # App with dropdown menu to all its models pages (Permissions checked against models)
-        {"app": "management_system"},
+        {"app": "apps.management_system"},
     ],
 
     #############
