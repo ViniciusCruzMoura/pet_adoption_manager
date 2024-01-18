@@ -4,4 +4,4 @@ docs/
 .cache
 *.pyc
 __pycache__
-
+.venv/
