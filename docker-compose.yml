@@ -31,10 +31,11 @@ services:
       - CONFIG_POSTGRESQL_PASSWORD=${CONFIG_POSTGRESQL_PASSWORD}
       - CONFIG_POSTGRESQL_HOST=${CONFIG_POSTGRESQL_HOST}
       - CONFIG_POSTGRESQL_PORT=${CONFIG_POSTGRESQL_PORT}
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py collectstatic --noinput &&
-             gunicorn --config gunicorn-cfg.py core.wsgi"
+      - CONFIG_REDIS_URL=${CONFIG_REDIS_URL}
+    # command: >
+    #   sh -c "python manage.py migrate &&
+    #          python manage.py collectstatic --noinput &&
+    #          gunicorn --config gunicorn-cfg.py core.wsgi"
     volumes:
       - static:/static 
       - media:/media
