@@ -4,7 +4,7 @@ services:
     restart: always
     image: nginx:latest
     ports:
-      - ${PORT}:80
+      - ${PORT:-9001}:80
     volumes:
       - nginx:/etc/nginx/conf.d
       - static:/static
@@ -18,7 +18,7 @@ services:
           memory: 32M
   web:
     restart: always
-    image: pet_adoption_manager:${VERSION}
+    image: pet_adoption_manager:${VERSION:-latest}
     build: .
     pull_policy: build
     environment:
