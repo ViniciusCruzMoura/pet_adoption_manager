@@ -20,7 +20,6 @@ services:
     restart: always
     image: pet_adoption_manager:${VERSION:-latest}
     build: .
-    pull_policy: build
     environment:
       - DOCKER_BUILDKIT=0
       - CONFIG_DEBUG=${CONFIG_DEBUG}
