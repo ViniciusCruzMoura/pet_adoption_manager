@@ -108,7 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'static')
+# STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Campo_Grande'
