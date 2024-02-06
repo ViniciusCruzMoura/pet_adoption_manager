@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [[ "$OSTYPE" != "linux-gnu"* ]]; then
+    echo 'Operating system unknown. Aborting deploy'
+    exit
+fi
+
 BASEDIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cat << "EOF"
