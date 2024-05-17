@@ -21,6 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('health_check.urls')),
     path('', include('apps.management_system.urls')),
 ]
 
