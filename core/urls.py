@@ -20,8 +20,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    # DJANGO ADMIN
     path('admin/', admin.site.urls),
+    # HEALTH CHECK
     path('', include('health_check.urls')),
+    # API
     path('', include('apps.management_system.urls')),
 ]
 
@@ -33,6 +36,9 @@ urlpatterns += [
     path("i18n/", include("django.conf.urls.i18n")),
 ]
 #urlpatterns += i18n_patterns(path("admin/", admin.site.urls))
+
+#Namespace
+#urlpatterns = [path('petadopt/', include(urlpatterns))]
 
 admin.site.site_header = 'Sistema de Gestão de Adoção de Animais'
 admin.site.index_title = 'Atendimento' 
