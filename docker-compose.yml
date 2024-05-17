@@ -51,6 +51,11 @@ services:
         reservations:
           cpus: '0.10'
           memory: 64M
+    healthcheck:
+      test: curl -f http://localhost:8000/api/v1/health_check/call
+      interval: 1m30s
+      timeout: 30s
+      retries: 3
   redis:
     restart: always
     image: redis
