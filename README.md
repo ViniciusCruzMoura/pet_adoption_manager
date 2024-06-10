@@ -17,7 +17,7 @@ Sistema para auxiliar o controle e gestão para as organizações que fazem a ad
 > Principais serviços disponiveis no sistema:
 - Realizar o cadastro ne animais
 
-## 💻 Pré-requisitos
+## 💻 Pré-requisitos <a name="prerequisitos"></a>
 
 > Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Você instalou a versão mais recente do `docker` e `docker-compose`.
@@ -28,7 +28,7 @@ Sistema para auxiliar o controle e gestão para as organizações que fazem a ad
 
 <br />
 
-## ✨ Iniciar a aplicação no Docker
+## ✨ Iniciar a aplicação no Docker <a name="rundocker"></a>
 
 > **Parte 1** - Baixe o código do repositório (usando o `GIT`) 
 ```bash
@@ -48,7 +48,7 @@ Visite `http://localhost:9090` em seu navegador. A aplicação deve estar config
 <br />
 
 
-## ✨ Como usá-lo
+## ✨ Como usá-lo <a name="runproject"></a>
 
 > Baixe o código 
 ```bash
@@ -114,7 +114,23 @@ Neste ponto, a aplicação é acessível em `http://127.0.0.1:8000/`.
 
 <br />
 
-## 📫 Contribuindo com o Projeto
+## 📋 Como rodar os testes <a name="runtests"></a>
+
+> É necessário instalar as dependências(requirements.txt), e configurar as variáveis de ambiente(.env)
+```bash
+# Testes de Unidade
+$ python -m unittest discover tests/unit/
+# Testes de Integração
+$ python -m unittest discover tests/integration/
+# Todos os testes
+$ python -m unittest discover tests/
+```
+<br />
+
+## 📚 Documentação <a name="documentation"></a>
+<br />
+
+## 📫 Contribuindo com o Projeto <a name="contributing"></a>
 > Para contribuir com o projeto, siga estas etapas:
 
 1. Faça o fork deste repositório.
