@@ -6,7 +6,7 @@ Sistema para auxiliar o controle e gestão para as organizações que fazem a ad
 - [Funcionalidades](#funcionalidades)
 - [Pré-requisitos](#prerequisitos)
 - [Iniciar a aplicação no Docker](#rundocker)
-- [Como usá-lo](#runproject)
+- [Como iniciar a aplicação](#runproject)
 - [Como rodar os testes](#runtests)
 - [Documentação](#documentation)
 - [Contribuindo com o Projeto](#contributing)
@@ -48,7 +48,7 @@ Visite `http://localhost:9090` em seu navegador. A aplicação deve estar config
 <br />
 
 
-## ✨ Como usá-lo <a name="runproject"></a>
+## ✨ Como iniciar a aplicação <a name="runproject"></a>
 
 > Baixe o código 
 ```bash
