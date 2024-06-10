@@ -2,7 +2,20 @@
 
 Sistema para auxiliar o controle e gestão para as organizações que fazem a adoção de animais de estimação ou que necessitem de uma plataforma para o registro de seu catalogo de animais.
 
+# Sumário
+- [Funcionalidades](#funcionalidades)
+- [Pré-requisitos](#prerequisitos)
+- [Iniciar a aplicação no Docker](#rundocker)
+- [Como usá-lo](#runproject)
+- [Como rodar os testes](#runtests)
+- [Documentação](#documentation)
+- [Contribuindo com o Projeto](#contributing)
+
 <br />
+
+## 📜 Funcionalidades <a name="funcionalidades"></a>
+> Principais serviços disponiveis no sistema:
+- Realizar o cadastro ne animais
 
 ## 💻 Pré-requisitos
 
