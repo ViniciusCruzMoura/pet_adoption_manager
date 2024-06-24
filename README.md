@@ -128,6 +128,9 @@ $ python -m unittest discover tests/
 <br />
 
 ## 📚 Documentação <a name="documentation"></a>
+- [API Documentação](docs/)
+- [Guia](docs/)
+- [Licença](#license)
 <br />
 
 ## 📫 Contribuindo com o Projeto <a name="contributing"></a>
