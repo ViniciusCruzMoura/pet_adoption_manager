@@ -124,6 +124,8 @@ $ python -m unittest discover tests/unit/
 $ python -m unittest discover tests/integration/
 # Todos os testes
 $ python -m unittest discover tests/
+# Executar com o Docker
+$ docker compose run --rm --build web sh -c "python -m unittest discover tests/"
 ```
 <br />
 
