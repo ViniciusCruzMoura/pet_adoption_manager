@@ -7,7 +7,7 @@ Sistema para auxiliar o controle e gestão para as organizações que fazem a ad
 - [Pré-requisitos](#prerequisitos)
 - [Iniciar a aplicação no Docker](#rundocker)
 - [Como iniciar a aplicação](#runproject)
-- [Como rodar os testes](#runtests)
+- [Como executar os testes](#runtests)
 - [Documentação](#documentation)
 - [Contribuindo com o Projeto](#contributing)
 
@@ -114,7 +114,7 @@ Neste ponto, a aplicação é acessível em `http://127.0.0.1:8000/`.
 
 <br />
 
-## 📋 Como rodar os testes <a name="runtests"></a>
+## 📋 Como executar os testes <a name="runtests"></a>
 
 > É necessário instalar as dependências(requirements.txt), e configurar as variáveis de ambiente(.env)
 ```bash
