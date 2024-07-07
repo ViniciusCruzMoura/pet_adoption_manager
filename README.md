@@ -15,7 +15,7 @@ Sistema para auxiliar o controle e gestão para as organizações que fazem a ad
 
 ## 📜 Funcionalidades <a name="funcionalidades"></a>
 > Principais serviços disponiveis no sistema:
-- Realizar o cadastro ne animais
+- Realizar o cadastro de animais
 
 ## 💻 Pré-requisitos <a name="prerequisitos"></a>
 
