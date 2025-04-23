@@ -5,6 +5,9 @@ Sistema para auxiliar o controle e gestão para as organizações que fazem a ad
 ### 👉 [CI/CD Build Status](http://127.0.0.1:8080/job/pet_adoption_manager/)
 > Seguimos um fluxo de trabalho de integração contínua para manter a qualidade do código. Para mais detalhes sobre os processos automatizados de build e teste, confira o link do [Jenkins](http://127.0.0.1:8080/job/pet_adoption_manager/).
 
+### 👉 [Log da Aplicação](http://127.0.0.1:9009)
+> Este link te direcionará para a interface de visualização dos logs de todos os containers das aplicações.
+
 # Sumário
 - [Funcionalidades](#funcionalidades)
 - [Pré-requisitos](#prerequisitos)
