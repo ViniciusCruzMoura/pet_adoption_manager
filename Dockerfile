@@ -12,6 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 CMD ["sh", "-c", " \
+    echo 'Iniciando a Aplicação... Aguarde 15 Segundos...'; sleep 15; \
     python manage.py migrate ; \
     python manage.py collectstatic --noinput && \
     gunicorn --config gunicorn-cfg.py core.wsgi & \
