@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'celery',
     'django_celery_beat',
     'apps.management_system',
+    'apps.user_admin',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
