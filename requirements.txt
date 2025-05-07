@@ -1,8 +1,8 @@
-Django
+Django==4.2
 gunicorn
 Pillow
 psycopg2-binary
 python-decouple
-django-celery-beat
-celery
+django-celery-beat==2.7.0
+celery==5.4.0
 django-redis
