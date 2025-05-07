@@ -58,7 +58,7 @@ $ cd pet_adoption_manager
 $ docker-compose up --build 
 ```
 
-Visite `http://localhost:9090` em seu navegador. A aplicação deve estar configurada e rodando.
+Visite `http://127.0.0.1:8000` em seu navegador. A aplicação deve estar configurada e rodando.
 #### Usuario Padrão, Login: admin Senha: admin
 
 <br />
