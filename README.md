@@ -21,7 +21,16 @@ Sistema para auxiliar o controle e gestão para as organizações que fazem a ad
 
 ## 📜 Funcionalidades <a name="funcionalidades"></a>
 > Principais serviços disponiveis no sistema:
-- Realizar o cadastro de animais
+- Cadastro de Animais e Características:
+    - Permite o registro detalhado de animais, incluindo informações como nome, idade, raça, sexo, cor, e qualquer outra característica relevante. Este serviço facilita a gestão eficiente do inventário de animais disponíveis para adoção, garantindo que todas as informações necessárias estejam facilmente acessíveis.
+- Cadastro de Vacinas:
+    - Facilita o registro e acompanhamento das vacinas aplicadas aos animais. Este serviço é crucial para garantir que os animais estejam sempre protegidos contra doenças, melhorando sua saúde e bem-estar.
+- Auditoria de Alterações e Inserções de Dados:
+    - Implementa um sistema de auditoria que rastreia todas as alterações e inserções de dados realizadas no sistema. Isso inclui informações sobre quem fez a alteração, quando foi feita, e quais dados foram modificados. Este serviço é essencial para garantir a integridade e a segurança dos dados, permitindo a identificação e correção de erros, além de fornecer um histórico completo das atividades realizadas no sistema.
+- Gestão de Usuários e Permissões:
+    - Permite a criação, edição e exclusão de perfis de usuário, além de definir permissões e níveis de acesso. Este serviço garante que apenas usuários autorizados possam realizar determinadas ações, aumentando a segurança e a confiança no sistema.
+- Relatórios e Análises:
+    - Oferece a geração de relatórios detalhados e análises sobre diversos aspectos do sistema, como o número de animais adotados, vacinas aplicadas, e atividades de auditoria. Esses relatórios são essenciais para a tomada de decisões informadas e para a avaliação do desempenho das organizações de doação de animais.
 
 ## 💻 Pré-requisitos <a name="prerequisitos"></a>
 
