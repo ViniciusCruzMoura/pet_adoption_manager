@@ -101,7 +101,13 @@ class AdopterAdmin(admin.ModelAdmin):
 
 @admin.register(Adoption)
 class AdoptionAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'fecha_solicitud',
+        'aprobada',
+        'fecha_aprobacion',
+    )
+    search_fields = ('fecha_solicitud', 'aprobada', 'fecha_aprobacion')
+    list_per_page = 30
 
 @admin.register(AnimalType)
 class AnimalTypeAdmin(admin.ModelAdmin):
