@@ -59,6 +59,7 @@ $ docker-compose up --build
 ```
 
 Visite `http://localhost:9090` em seu navegador. A aplicação deve estar configurada e rodando.
+#### Usuario Padrão, Login: admin Senha: admin
 
 <br />
 
@@ -98,6 +99,7 @@ $ python3 manage.py runserver
 ```
 
 Neste ponto, a aplicação é acessível em `http://127.0.0.1:8000/`. 
+#### Usuario Padrão, Login: admin Senha: admin
 
 <br />
 
@@ -126,6 +128,7 @@ $ python manage.py runserver
 ```
 
 Neste ponto, a aplicação é acessível em `http://127.0.0.1:8000/`. 
+#### Usuario Padrão, Login: admin Senha: admin
 
 <br />
 
