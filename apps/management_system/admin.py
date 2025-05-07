@@ -96,7 +96,7 @@ class AdopterAdmin(admin.ModelAdmin):
         'phone',
         'email',
     )
-    search_fields = ('id', 'name', 'phone', 'email')
+    search_fields = ('id', 'name', 'email')
     list_per_page = 30
 
 @admin.register(Adoption)
@@ -107,6 +107,7 @@ class AdoptionAdmin(admin.ModelAdmin):
         'fecha_aprobacion',
     )
     search_fields = ('fecha_solicitud', 'aprobada', 'fecha_aprobacion')
+    list_filter = ('fecha_solicitud', 'aprobada', 'fecha_aprobacion')
     list_per_page = 30
 
 @admin.register(AnimalType)
