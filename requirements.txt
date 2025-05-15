@@ -6,3 +6,4 @@ python-decouple
 django-celery-beat==2.7.0
 celery==5.4.0
 django-redis
+django-import-export==4.3.7

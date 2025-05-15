@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import *
 
+from import_export.admin import ExportMixin
 # Register your models here.
 
 class ImagesInline(admin.TabularInline):
@@ -13,7 +14,7 @@ class VaccineInline(admin.TabularInline):
     model = Vaccine
     extra = 1
 
-class AnimalAdmin(admin.ModelAdmin):
+class AnimalAdmin(ExportMixin, admin.ModelAdmin):
     list_display = (
         'id',
         'name',

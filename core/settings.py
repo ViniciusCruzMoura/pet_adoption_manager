@@ -3,6 +3,11 @@ from pathlib import Path
 from decouple import config
 import logging
 
+from import_export.formats.base_formats import XLSX, CSV, JSON, HTML
+IMPORT_FORMATS = [XLSX, CSV, JSON, HTML]
+IMPORT_EXPORT_SKIP_ADMIN_LOG = False
+IMPORT_EXPORT_ESCAPE_FORMULAE_ON_EXPORT = True
+
 logging.basicConfig(
     level   = logging.DEBUG, 
     format  = "[%(asctime)s %(levelname)8s] %(message)s",
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'celery',
     'django_celery_beat',
+    'import_export',
     'apps.management_system',
     'apps.user_admin',
 ]
