@@ -274,6 +274,8 @@ class Adoption(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Adotador'
     )
+    def __str__(self):
+        return f"""{self.id}"""
     class Meta:
         db_table = 'management_system_adoption'
         verbose_name = 'Adoção'
