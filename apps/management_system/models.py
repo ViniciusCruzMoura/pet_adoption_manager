@@ -120,7 +120,7 @@ class Animal(models.Model):
         default=None, 
         blank=True, 
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.PROTECT
     )
     size = models.ForeignKey(
         AnimalSize,
@@ -128,7 +128,7 @@ class Animal(models.Model):
         default=None,
         blank=True,
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.PROTECT
     )
     age = models.IntegerField(
         verbose_name='Idade',
@@ -148,7 +148,7 @@ class Animal(models.Model):
         default=None, 
         blank=True, 
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.PROTECT
     )
     breed = models.ForeignKey(
         Breed,
@@ -156,7 +156,7 @@ class Animal(models.Model):
         default=None, 
         blank=True,
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.PROTECT
     )
     type = models.ForeignKey(
         AnimalType,
@@ -193,7 +193,7 @@ class Images(models.Model):
         default=None, 
         blank=True,
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.PROTECT
     )
     def img_preview(self):
         from django.utils.html import mark_safe
@@ -236,7 +236,7 @@ class Adopter(models.Model):
         default=None, 
         blank=True,
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.PROTECT
     )
     email = models.CharField(
         verbose_name='Email',
@@ -266,12 +266,12 @@ class Adoption(models.Model):
     )
     animal_id = models.ForeignKey(
         Animal, 
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         verbose_name='Animal'
     )
     adopter_id = models.ForeignKey(
         Adopter, 
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         verbose_name='Adotador'
     )
     def __str__(self):
@@ -293,7 +293,7 @@ class Vaccine(models.Model):
         default=None, 
         blank=True,
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.PROTECT
     )
     def __str__(self):
         return f"""{self.name}"""
