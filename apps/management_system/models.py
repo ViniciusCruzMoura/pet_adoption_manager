@@ -266,11 +266,13 @@ class Adoption(models.Model):
     )
     animal_id = models.ForeignKey(
         Animal, 
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        verbose_name='Animal'
     )
     adopter_id = models.ForeignKey(
         Adopter, 
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        verbose_name='Adotador'
     )
     class Meta:
         db_table = 'management_system_adoption'
