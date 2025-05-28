@@ -164,10 +164,10 @@ class Animal(models.Model):
         default=None, 
         blank=True,
         null=True,
-        on_delete=models.SET_NULL
+        on_delete=models.PROTECT
     )
     def img_preview(self):
-        obj = Images.objects.filter(animal__id=self.id).order_by('-id')[:1] or None
+        obj = Images.objects.filter(animal=self).order_by('-id')[:1] or None
         if obj is None:
             return ""
         return obj[0].img_preview()
