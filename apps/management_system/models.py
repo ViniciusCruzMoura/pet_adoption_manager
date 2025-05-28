@@ -167,7 +167,7 @@ class Animal(models.Model):
         on_delete=models.SET_NULL
     )
     def img_preview(self):
-        obj = Images.objects.filter().order_by('-id')[:1] or None
+        obj = Images.objects.filter(animal__id=self.id).order_by('-id')[:1] or None
         if obj is None:
             return ""
         return obj[0].img_preview()
